@@ -1,8 +1,8 @@
 from datetime import datetime
-from app import db
+from .app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from sqlalchemy import func, case
+from sqlalchemy import func, case # Make sure func and case are imported here
 
 class User(UserMixin, db.Model):
     """User model representing application users"""

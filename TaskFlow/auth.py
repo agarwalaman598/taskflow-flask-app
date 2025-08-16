@@ -1,7 +1,6 @@
 from flask_login import LoginManager
-from models import User
-from app import app
-from email_validator import validate_email, EmailNotValidError
+from .models import User
+from .app import app
 
 # Initialize login manager
 login_manager = LoginManager()

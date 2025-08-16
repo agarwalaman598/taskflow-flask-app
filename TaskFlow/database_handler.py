@@ -1,5 +1,5 @@
-from app import db
-from models import User, Task
+from .app import db
+from .models import User, Task
 from sqlalchemy import func, and_, or_, case
 from datetime import datetime, timedelta
 import logging

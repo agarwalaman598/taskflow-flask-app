@@ -3,10 +3,10 @@ from flask_login import login_user, logout_user, login_required, current_user
 from datetime import datetime
 import logging
 
-from app import app
-from database_handler import DatabaseHandler
-from auth import AuthHandler
-from models import User, Task
+from .app import app
+from .database_handler import DatabaseHandler
+from .auth import AuthHandler
+from .models import User, Task
 
 # Initialize handlers
 db_handler = DatabaseHandler()
