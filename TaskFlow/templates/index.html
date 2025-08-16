@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Task Management App{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+        <!-- Hero Section -->
+        <div class="py-5">
+            <i class="fas fa-tasks display-1 text-primary mb-4"></i>
+            <h1 class="display-4 fw-bold mb-4">Task Management Made Simple</h1>
+            <p class="lead mb-4">
+                Organize your tasks efficiently with our powerful task management application. 
+                Built with Flask, PostgreSQL, and modern web technologies.
+            </p>
+            
+            {% if not current_user.is_authenticated %}
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg me-md-2">
+                        <i class="fas fa-user-plus me-2"></i>Get Started
+                    </a>
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-secondary btn-lg">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="row mt-5">
+    <div class="col-12">
+        <h2 class="text-center mb-5">Key Features</h2>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-tasks fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Task Management</h5>
+                <p class="card-text">
+                    Create, read, update, and delete tasks with ease. 
+                    Set priorities, due dates, and track progress.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-database fa-3x text-success mb-3"></i>
+                <h5 class="card-title">PostgreSQL Backend</h5>
+                <p class="card-text">
+                    Robust database with proper schema design, 
+                    complex queries, JOINs, and GROUP BY operations.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-api fa-3x text-warning mb-3"></i>
+                <h5 class="card-title">REST API</h5>
+                <p class="card-text">
+                    Full REST API endpoints for tasks with JSON responses. 
+                    Perfect for integrations and mobile apps.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Technology Stack -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="card-title mb-4">Technology Stack</h3>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <i class="fab fa-python fa-3x text-info mb-2"></i>
+                        <h6>Python & Flask</h6>
+                        <small class="text-muted">Backend Framework</small>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="fas fa-database fa-3x text-primary mb-2"></i>
+                        <h6>PostgreSQL</h6>
+                        <small class="text-muted">Database</small>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="fab fa-html5 fa-3x text-danger mb-2"></i>
+                        <h6>HTML5 & Bootstrap</h6>
+                        <small class="text-muted">Frontend</small>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="fas fa-cogs fa-3x text-success mb-2"></i>
+                        <h6>OOP Design</h6>
+                        <small class="text-muted">Architecture</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- API Demo Section -->
+{% if current_user.is_authenticated %}
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-api me-2"></i>API Endpoints
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="mb-3">Access your tasks programmatically using our REST API:</p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Endpoint</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge bg-success">GET</span></td>
+                                <td><code>/api/tasks</code></td>
+                                <td>Get all tasks</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-info">POST</span></td>
+                                <td><code>/api/tasks</code></td>
+                                <td>Create new task</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-warning">PUT</span></td>
+                                <td><code>/api/tasks/:id</code></td>
+                                <td>Update task</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-danger">DELETE</span></td>
+                                <td><code>/api/tasks/:id</code></td>
+                                <td>Delete task</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-3">
+                    <a href="/api/tasks" class="btn btn-sm btn-outline-primary" target="_blank">
+                        <i class="fas fa-external-link-alt me-1"></i>Try API
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

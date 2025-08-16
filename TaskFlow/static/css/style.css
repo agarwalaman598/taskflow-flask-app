@@ -1,0 +1,146 @@
+/* =================================================================
+   Modern & Professional Theme for TaskFlow App
+   ================================================================= */
+
+/* --- Root Variables & Base Setup --- */
+:root {
+    --primary-color: #5646ff; /* A more vibrant purple-blue */
+    --primary-color-light: #f0f0ff;
+    --success-color: #17c671;
+    --warning-color: #ffb400;
+    --danger-color: #ff4d4f;
+    --dark-color: #1a1a2e; /* A deep navy blue for dark mode */
+    --body-bg-dark: #161625;
+    --card-bg-dark: #1f1f35;
+    --border-color-dark: #3a3a5c;
+    --text-muted-dark: #a0a0c8;
+
+    --border-radius: 0.75rem; /* Softer, rounded corners */
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--body-bg-dark);
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: transparent !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color-dark);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* --- Card Styles --- */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg-dark);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color-dark);
+    font-weight: 600;
+    padding: 1.25rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* --- Button & Form Styles --- */
+.btn {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), #7b68ee);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(86, 70, 255, 0.4);
+}
+
+.form-control, .form-select, textarea.form-control {
+    background-color: var(--body-bg-dark);
+    border: 1px solid var(--border-color-dark);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #fff;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(86, 70, 255, 0.25);
+    background-color: var(--card-bg-dark);
+}
+
+/* Fix for dropdown option visibility */
+.form-select option {
+    background-color: var(--card-bg-dark);
+    color: #fff;
+}
+
+/* --- Task Specific Styles --- */
+.task-card .card-header {
+    padding: 0.75rem 1.25rem;
+}
+
+.badge {
+    padding: 0.5em 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.border-danger {
+    border-left: 4px solid var(--danger-color) !important;
+}
+
+/* --- Dashboard & Statistics --- */
+.stats-card .card-body {
+    color: #fff;
+}
+.card.bg-primary { background: linear-gradient(45deg, #5646ff, #7b68ee) !important; }
+.card.bg-success { background: linear-gradient(45deg, #17c671, #28a745) !important; }
+
+.card .card-body form textarea#description {
+    background-color: var(--body-bg-dark) !important;
+    border: 1px solid var(--border-color-dark) !important;
+    color: #fff !important;
+}
+
+.card .card-body form textarea#description:focus {
+    background-color: var(--card-bg-dark) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(86, 70, 255, 0.25) !important;
+}
