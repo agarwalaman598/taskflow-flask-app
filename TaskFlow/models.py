@@ -1,4 +1,5 @@
 from datetime import datetime
+from types import SimpleNamespace
 from .app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -47,11 +48,12 @@ class User(UserMixin, db.Model):
         total_tasks = stats.total or 0
         completed_tasks = stats.completed or 0
         
-        return {
-            'total': total_tasks,
-            'completed': completed_tasks,
-            'pending': total_tasks - completed_tasks
-        }
+        # Return a SimpleNamespace to allow attribute access in templates
+        return SimpleNamespace(
+            total=total_tasks,
+            completed=completed_tasks,
+            pending=total_tasks - completed_tasks
+        )
     
     def to_dict(self):
         """Convert user to dictionary for JSON serialization"""
